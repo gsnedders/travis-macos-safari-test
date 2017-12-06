@@ -1,9 +1,13 @@
-language: python
-python:
-  - "2.7"
+language: generic
 os: osx
 osx_image: xcode9.1
 
+before_install:
+  - brew update
+  - brew install python
+  - virtualenv env -p python
+  - source env/bin/activate
+  
 install:
   - ./install.sh
   - pip install selenium
